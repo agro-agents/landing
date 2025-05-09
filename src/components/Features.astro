@@ -1,0 +1,111 @@
+---
+import { getLocaleFromUrl, useTranslations } from "../i18n/utils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+---
+
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-heading">
+      <h2>{t("features.heading.title")}</h2>
+      <p>{t("features.heading.description")}</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img
+            src="/agro-agents-landing/images/ai-icon.svg"
+            alt={t("features.cards.analysis.alt")}
+            width="64"
+            height="64"
+          />
+        </div>
+        <h3>{t("features.cards.analysis.title")}</h3>
+        <p>{t("features.cards.analysis.description")}</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img
+            src="/images/automation-icon.svg"
+            alt={t("features.cards.automation.alt")}
+            width="64"
+            height="64"
+          />
+        </div>
+        <h3>{t("features.cards.automation.title")}</h3>
+        <p>{t("features.cards.automation.description")}</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img
+            src="/images/data-icon.svg"
+            alt={t("features.cards.resource.alt")}
+            width="64"
+            height="64"
+          />
+        </div>
+        <h3>{t("features.cards.resource.title")}</h3>
+        <p>{t("features.cards.resource.description")}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    background-color: var(--color-background-alt);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .feature-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-icon {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(46, 125, 50, 0.1);
+  }
+
+  .feature-card h3 {
+    margin-bottom: 1rem;
+    color: var(--color-primary-dark);
+  }
+
+  .feature-card p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

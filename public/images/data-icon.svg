@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Bars -->
+  <rect fill="#FFC107" x="16" y="32" width="8" height="20" rx="2"/>
+  <rect fill="#FF9800" x="28" y="24" width="8" height="28" rx="2"/>
+  <rect fill="#F57C00" x="40" y="16" width="8" height="36" rx="2"/>
+  <!-- Leaves -->
+  <path fill="#4CAF50" d="M20 32c-4-4-4-8-4-8s4 0 8 4 4 8 4 8-4 0-8-4z"/>
+  <path fill="#4CAF50" d="M32 24c-4-4-4-8-4-8s4 0 8 4 4 8 4 8-4 0-8-4z"/>
+  <path fill="#4CAF50" d="M44 16c-4-4-4-8-4-8s4 0 8 4 4 8 4 8-4 0-8-4z"/>
+</svg>

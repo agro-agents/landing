@@ -1,0 +1,175 @@
+---
+import { getLocaleFromUrl } from "../i18n/utils";
+import Analytics from "@vercel/analytics/astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+
+const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}\//, "/");
+const enPath = locale === "en" ? Astro.url.pathname : currentPath;
+const esPath = locale === "es" ? Astro.url.pathname : `/es${currentPath}`;
+
+const enUrl = `${Astro.url.origin}${enPath}`;
+const esUrl = `${Astro.url.origin}${esPath}`;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Standard favicon.ico -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- PNG variants for better resolution support -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+
+    <!-- iOS home screen icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Optional: manifest for PWA -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Add language alternates for SEO -->
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+  </head>
+  <body>
+    <Analytics />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-primary: #2e7d32;
+    --color-primary-dark: #1b5e20;
+    --color-secondary: #1565c0;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-background: #ffffff;
+    --color-background-alt: #f9f9f9;
+    --color-border: #eeeeee;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--color-background);
+    color: var(--color-text);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 5rem 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-heading h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .section-heading h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-primary);
+  }
+
+  .section-heading p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+  }
+</style>

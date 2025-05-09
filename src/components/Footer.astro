@@ -1,0 +1,380 @@
+---
+import {
+  getLocaleFromUrl,
+  useTranslations,
+  getLocalizedPath,
+} from "../i18n/utils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand & Tagline -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-text">
+            Agro<span class="highlight">Agents</span>
+          </span>
+        </div>
+        <p class="footer-tagline">
+          {t("footer.tagline")}
+        </p>
+        <div class="social-links">
+          <a
+            href="#"
+            class="social-link"
+            aria-label={t("footer.social.linkedin")}
+          >
+            <!-- LinkedIn SVG -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label={t("footer.social.x")}>
+            <!-- X SVG -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 1200 1227"
+              fill="currentColor"
+            >
+              <path
+                d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="social-link"
+            aria-label={t("footer.social.facebook")}
+          >
+            <!-- Facebook SVG -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="social-link"
+            aria-label={t("footer.social.instagram")}
+          >
+            <!-- Instagram SVG -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Link Columns -->
+      <div class="footer-links">
+        <div class="footer-links-column">
+          <h3>{t("footer.columns.solutions")}</h3>
+          <ul>
+            <li>
+              <a href={getLocalizedPath("/crop-analysis", locale)}>
+                {t("footer.links.cropAnalysis")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/automated-equipment", locale)}>
+                {t("footer.links.automatedEquipment")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/resource-management", locale)}>
+                {t("footer.links.resourceManagement")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/data-analytics", locale)}>
+                {t("footer.links.dataAnalytics")}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-links-column">
+          <h3>{t("footer.columns.company")}</h3>
+          <ul>
+            <li>
+              <a href={getLocalizedPath("/about", locale)}>
+                {t("footer.links.aboutUs")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/careers", locale)}>
+                {t("footer.links.careers")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/news", locale)}>
+                {t("footer.links.news")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/partners", locale)}>
+                {t("footer.links.partners")}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-links-column">
+          <h3>{t("footer.columns.resources")}</h3>
+          <ul>
+            <li>
+              <a href={getLocalizedPath("/blog", locale)}>
+                {t("footer.links.blog")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/case-studies", locale)}>
+                {t("footer.links.caseStudies")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/knowledge-base", locale)}>
+                {t("footer.links.knowledgeBase")}
+              </a>
+            </li>
+            <li>
+              <a href={getLocalizedPath("/support", locale)}>
+                {t("footer.links.support")}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="copyright">
+        &copy; {currentYear} Agro Agents. {t("footer.allRightsReserved")}
+      </div>
+      <div class="legal-links">
+        <a href={getLocalizedPath("/privacy-policy", locale)}>
+          {t("footer.privacyPolicy")}
+        </a>
+        <a href={getLocalizedPath("/terms-of-service", locale)}>
+          {t("footer.termsOfService")}
+        </a>
+        <a href={getLocalizedPath("/cookies", locale)}>
+          {t("footer.cookies")}
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 5rem 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-logo {
+    margin-bottom: 1rem;
+  }
+
+  .logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .footer-tagline {
+    margin-bottom: 2rem;
+    color: #cccccc;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .social-link:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-3px);
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-links-column h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .footer-links-column h3::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--color-primary);
+  }
+
+  .footer-links-column ul {
+    list-style: none;
+  }
+
+  .footer-links-column li {
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-links-column a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links-column a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .copyright {
+    color: #999999;
+    font-size: 0.875rem;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .legal-links a {
+    color: #999999;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .legal-links a:hover {
+    color: white;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand {
+      text-align: center;
+      align-items: center;
+    }
+
+    .footer-links-column h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-links {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+  }
+</style>

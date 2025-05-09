@@ -1,0 +1,132 @@
+---
+import Button from "./Button.astro";
+import { getLocaleFromUrl, useTranslations } from "../i18n/utils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
+---
+
+<section id="case-studies" class="case-studies">
+  <div class="container">
+    <div class="section-heading">
+      <h2>{t("caseStudies.heading.title")}</h2>
+      <p>{t("caseStudies.heading.description")}</p>
+    </div>
+
+    <div class="case-studies-grid">
+      <div class="case-study-card">
+        <div class="case-study-image">
+          <div class="placeholder-image"></div>
+          <div class="case-study-category">
+            {t("caseStudies.cards.largeScale.category")}
+          </div>
+        </div>
+        <div class="case-study-content">
+          <h3>{t("caseStudies.cards.largeScale.title")}</h3>
+          <p>{t("caseStudies.cards.largeScale.description")}</p>
+          <Button href="#" variant="outline" size="small">
+            {t("caseStudies.cards.read")}
+          </Button>
+        </div>
+      </div>
+
+      <div class="case-study-card">
+        <div class="case-study-image">
+          <div class="placeholder-image"></div>
+          <div class="case-study-category">
+            {t("caseStudies.cards.vineyard.category")}
+          </div>
+        </div>
+        <div class="case-study-content">
+          <h3>{t("caseStudies.cards.vineyard.title")}</h3>
+          <p>{t("caseStudies.cards.vineyard.description")}</p>
+          <Button href="#" variant="outline" size="small">
+            {t("caseStudies.cards.read")}
+          </Button>
+        </div>
+      </div>
+
+      <div class="case-study-card">
+        <div class="case-study-image">
+          <div class="placeholder-image"></div>
+          <div class="case-study-category">
+            {t("caseStudies.cards.indoor.category")}
+          </div>
+        </div>
+        <div class="case-study-content">
+          <h3>{t("caseStudies.cards.indoor.title")}</h3>
+          <p>{t("caseStudies.cards.indoor.description")}</p>
+          <Button href="#" variant="outline" size="small">
+            {t("caseStudies.cards.read")}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .case-studies {
+    background-color: var(--color-background-alt);
+  }
+
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .case-study-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .case-study-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .case-study-image {
+    position: relative;
+  }
+
+  .placeholder-image {
+    height: 200px;
+    background: linear-gradient(45deg, #2e7d32, #1e88e5);
+    opacity: 0.8;
+  }
+
+  .case-study-category {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-top-left-radius: 8px;
+  }
+
+  .case-study-content {
+    padding: 1.5rem;
+  }
+
+  .case-study-content h3 {
+    margin-bottom: 0.75rem;
+    color: var(--color-primary-dark);
+  }
+
+  .case-study-content p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .case-studies-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
