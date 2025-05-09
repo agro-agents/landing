@@ -4,6 +4,7 @@ import { getLocaleFromUrl, useTranslations } from "../i18n/utils";
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
+const baseURL = import.meta.env.BASE_URL;
 ---
 
 <section class="hero" id="home">
@@ -40,7 +41,7 @@ const t = useTranslations(locale);
     height: 100vh;
     min-height: 600px;
     max-height: 800px;
-    background-image: url("/agro-agents-landing/images/farm-case-study.jpg");
+    background-image: url("/landing/images/farm-case-study.jpg");
     background-size: cover;
     background-position: center;
     color: white;

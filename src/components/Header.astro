@@ -7,6 +7,7 @@ import {
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
+const baseURL = import.meta.env.BASE_URL;
 ---
 
 <header class="header">
@@ -14,7 +15,7 @@ const t = useTranslations(locale);
     <div class="logo">
       <a href={getLocalizedPath("/", locale)}>
         <img
-          src="/images/agro-agents-color-small.svg"
+          src=`${baseURL}/images/agro-agents-color-small.svg`
           alt="AgroAgents logo"
           class="logo-image"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"

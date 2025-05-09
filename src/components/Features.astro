@@ -3,6 +3,7 @@ import { getLocaleFromUrl, useTranslations } from "../i18n/utils";
 
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
+const baseURL = import.meta.env.BASE_URL;
 ---
 
 <section id="features" class="features">
@@ -16,7 +17,7 @@ const t = useTranslations(locale);
       <div class="feature-card">
         <div class="feature-icon">
           <img
-            src="/agro-agents-landing/images/ai-icon.svg"
+            src=`${baseURL}/images/ai-icon.svg`
             alt={t("features.cards.analysis.alt")}
             width="64"
             height="64"
@@ -29,7 +30,7 @@ const t = useTranslations(locale);
       <div class="feature-card">
         <div class="feature-icon">
           <img
-            src="/images/automation-icon.svg"
+            src=`${baseURL}/images/automation-icon.svg`
             alt={t("features.cards.automation.alt")}
             width="64"
             height="64"
@@ -42,7 +43,7 @@ const t = useTranslations(locale);
       <div class="feature-card">
         <div class="feature-icon">
           <img
-            src="/images/data-icon.svg"
+            src=`${baseURL}/images/data-icon.svg`
             alt={t("features.cards.resource.alt")}
             width="64"
             height="64"

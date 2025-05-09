@@ -1,6 +1,7 @@
 ---
 import { getLocaleFromUrl } from "../i18n/utils";
 import Analytics from "@vercel/analytics/astro";
+const baseURL = import.meta.env.BASE_URL;
 
 interface Props {
   title: string;
@@ -18,7 +19,7 @@ const esUrl = `${Astro.url.origin}${esPath}`;
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={locale} style={`--css-base-url: '${baseURL}';`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
