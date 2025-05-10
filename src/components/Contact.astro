@@ -6,6 +6,8 @@ import {
   getLocalizedPath,
 } from "../i18n/utils";
 
+const baseURL = import.meta.env.BASE_URL;
+
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
 ---
@@ -64,7 +66,7 @@ const t = useTranslations(locale);
 
           <div class="form-submit">
             <Button
-              href={getLocalizedPath("/contact", locale)}
+              href={getLocalizedPath(`${baseURL}/contact`, locale)}
               variant="primary"
               fullWidth
             >
@@ -148,7 +150,7 @@ const t = useTranslations(locale);
           <h3>{t("contact.cta.heading")}</h3>
           <p>{t("contact.cta.description")}</p>
           <Button
-            href={getLocalizedPath("/book-demo", locale)}
+            href={getLocalizedPath(`${baseURL}/book-dema`, locale)}
             variant="secondary"
           >
             {t("contact.cta.button")}

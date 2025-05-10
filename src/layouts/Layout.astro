@@ -1,6 +1,5 @@
 ---
 import { getLocaleFromUrl } from "../i18n/utils";
-import Analytics from "@vercel/analytics/astro";
 const baseURL = import.meta.env.BASE_URL;
 
 interface Props {
@@ -23,7 +22,7 @@ const esUrl = `${Astro.url.origin}${esPath}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href=`${baseURL}/favicon-16x16.png` />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,24 +32,23 @@ const esUrl = `${Astro.url.origin}${esPath}`;
       rel="stylesheet"
     />
     <!-- Standard favicon.ico -->
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href=`${baseURL}/favicon.png` />
 
     <!-- PNG variants for better resolution support -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href=`${baseURL}/favicon-16x16.png` />
+    <link rel="icon" type="image/png" sizes="32x32" href=`${baseURL}/favicon-32x32.png` />
 
     <!-- iOS home screen icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href=`${baseURL}/apple-touch-icon.png` />
 
     <!-- Optional: manifest for PWA -->
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="manifest" href=`${baseURL}/site.webmanifest` />
 
     <!-- Add language alternates for SEO -->
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="es" href={esUrl} />
   </head>
   <body>
-    <Analytics />
     <slot />
   </body>
 </html>

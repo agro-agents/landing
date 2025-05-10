@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+const baseURL = import.meta.env.BASE_URL;
 ---
 
 <Layout title="404 - Página No Encontrada | Agro Agents">
@@ -37,8 +38,8 @@ import Layout from "../../layouts/Layout.astro";
           sido cosechada o nunca fue sembrada.
         </p>
         <div class="cta-group">
-          <a href="/es" class="btn-primary">Volver al Campo Principal</a>
-          <a href="/es/contact" class="btn-secondary"
+          <a href=`${baseURL}/es` class="btn-primary">Volver al Campo Principal</a>
+          <a href=`${baseURL}/es/contact` class="btn-secondary"
             >Contactar Soporte Agrícola</a
           >
         </div>
