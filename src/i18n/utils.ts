@@ -29,12 +29,14 @@ export function useTranslations(locale: string) {
 }
 
 export function getLocalizedPath(path: string, locale: string) {
-  const base = import.meta.env.BASE_URL;
-  const pathWithoutLeadingSlash = path.startsWith('/') ? path.substring(1) : path;
+  const rawBase = import.meta.env.BASE_URL; 
+  const base     = rawBase.replace(/\/$/, ''); 
+  const defaultLang = 'en';
+  const trimmedPath = path.replace(/\/$/, '');
+  const withoutBase = trimmedPath.startsWith(base)
+    ? trimmedPath.slice(base.length)
+    : trimmedPath;
 
-  if (locale === defaultLang) {
-    return `${base}${defaultLang}/${pathWithoutLeadingSlash}`;
-  } else {
-    return `${base}${locale}/${pathWithoutLeadingSlash}`;
-  }
+  const langSegment = locale === defaultLang ? defaultLang : locale;
+  return `${base}/${langSegment}${withoutBase}`;
 }
